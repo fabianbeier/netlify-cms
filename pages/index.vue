@@ -1,40 +1,28 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        netlify-cms
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <li v-for="post of posts" :key="post.slug">
+      <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+    </li>
   </div>
 </template>
 
 <script>
 export default {
-    head() {
+  head() {
     return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+      script: [
+        { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" }
+      ]
+    }
+  },
+  async asyncData({ $content }) {
+    const posts = await $content("blog").fetch();
+
+    return {
+      posts,
     };
   },
-}
+};
 </script>
 
 <style>
@@ -53,16 +41,8 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
