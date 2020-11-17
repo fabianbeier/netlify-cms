@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  repo: fabianbeier/netlify-cms
   branch: master
 
 media_folder: static/img
