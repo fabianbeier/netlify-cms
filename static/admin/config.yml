@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   repo: fabianbeier/netlify-cms
   branch: master
+  local_backend: true
 
 media_folder: static/img
 public_folder: /img
@@ -20,6 +21,11 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Sections'
+        name: 'sections'
+        widget: 'list'
+        fields:
+          - {label: 'Section', name: 'section', widget: 'markdown'}
   - name: 'pages'
     label: 'Pages'
     files:

@@ -3,6 +3,7 @@
     <h2>{{ post.title }}</h2>
     <h2 class="bg-teal-300 ">{{ post.description }}</h2>
     <nuxt-content :document="post" />
+    <li v-for="section in post.sections">{{section.section}}</li>
   </div>
 </template>
 
