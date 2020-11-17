@@ -1,6 +1,9 @@
 ---
 title: sdfsdfsdf
-intro: sdfsdfsdfsdf
+intro: |-
+  sdfsdfsdfsdf
+
+  ## Hier kann ich was schreiben
 team:
   - name: sdfsdf
     position: sdfsdfsdf
